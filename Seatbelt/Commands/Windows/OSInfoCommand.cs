@@ -31,6 +31,7 @@ namespace Seatbelt.Commands.Windows
         {
             var ProductName = ThisRunTime.GetStringValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "ProductName");
             var EditionID = ThisRunTime.GetStringValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "EditionID");
+            var DisplayVersion = ThisRunTime.GetStringValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "DisplayVersion");
             var ReleaseId = ThisRunTime.GetStringValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "ReleaseId");
             var BuildBranch = ThisRunTime.GetStringValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "BuildBranch");
             var CurrentMajorVersionNumber = ThisRunTime.GetDwordValue(RegistryHive.LocalMachine, "Software\\Microsoft\\Windows NT\\CurrentVersion", "CurrentMajorVersionNumber");
@@ -74,6 +75,7 @@ namespace Seatbelt.Commands.Windows
                     "",
                     ProductName,
                     EditionID,
+                    DisplayVersion,
                     ReleaseId,
                     BuildNumber,
                     BuildBranch,
@@ -127,6 +129,7 @@ namespace Seatbelt.Commands.Windows
                     WindowsIdentity.GetCurrent().Name,
                     ProductName,
                     EditionID,
+                    DisplayVersion,
                     ReleaseId,
                     BuildNumber,
                     BuildBranch,
@@ -177,13 +180,14 @@ namespace Seatbelt.Commands.Windows
 
     internal class OSInfoDTO : CommandDTOBase
     {
-        public OSInfoDTO(string hostname, string domain, string username, string? productName, string? editionId, string? releaseId, string? build, string? buildBranch, string? currentMajorVersionNumber, string? currentVersion, string architecture, string processorCount, bool isVirtualMachine, DateTime bootTimeUtc, bool isHighIntegrity, bool isLocalAdmin, DateTime currentTimeUtc, string? timeZone, string? timeZoneUtcOffset, string? locale, string? inputLanguage, string[]? installedInputLanguages, string? machineGuid)
+        public OSInfoDTO(string hostname, string domain, string username, string? productName, string? editionId, string? displayVersion, string? releaseId, string? build, string? buildBranch, string? currentMajorVersionNumber, string? currentVersion, string architecture, string processorCount, bool isVirtualMachine, DateTime bootTimeUtc, bool isHighIntegrity, bool isLocalAdmin, DateTime currentTimeUtc, string? timeZone, string? timeZoneUtcOffset, string? locale, string? inputLanguage, string[]? installedInputLanguages, string? machineGuid)
         {
             Hostname = hostname;
             Domain = domain;
             Username = username;
             ProductName = productName;
             EditionId = editionId;
+            DisplayVersion = displayVersion;
             ReleaseId = releaseId;
             Build = build;
             BuildBranch = buildBranch;
@@ -209,6 +213,7 @@ namespace Seatbelt.Commands.Windows
         public string Username { get; set; }
         public string? ProductName { get; set; }
         public string? EditionId { get; set; }
+        public string? DisplayVersion { get; set; }
         public string? ReleaseId { get; set; }
         public string? Build { get; set; }
         public string? BuildBranch { get; set; }
@@ -244,6 +249,7 @@ namespace Seatbelt.Commands.Windows
             WriteLine("  {0,-30}:  {1}", "Username", dto.Username);
             WriteLine("  {0,-30}:  {1}", "ProductName", dto.ProductName);
             WriteLine("  {0,-30}:  {1}", "EditionID", dto.EditionId);
+            WriteLine("  {0,-30}:  {1}", "DisplayVersion", dto.DisplayVersion);
             WriteLine("  {0,-30}:  {1}", "ReleaseId", dto.ReleaseId);
             WriteLine("  {0,-30}:  {1}", "Build", dto.Build);
             WriteLine("  {0,-30}:  {1}", "BuildBranch", dto.BuildBranch);
