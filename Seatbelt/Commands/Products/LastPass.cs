@@ -34,6 +34,7 @@ namespace Seatbelt.Commands
             var searchPath = $"{Environment.GetEnvironmentVariable("SystemDrive")}\\Users\\";
             var files = FindFiles(searchPath, string.Join(";", patterns));
 
+            WriteHost("\nAnalyze any found databases with steps oulined here: https://markuta.com/cracking-lastpass-vaults/");
             WriteHost("\nAccessed      Modified      Path");
             WriteHost("----------    ----------    -----");
 
