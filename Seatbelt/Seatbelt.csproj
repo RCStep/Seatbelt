@@ -208,6 +208,7 @@
     <Compile Include="Commands\Windows\WMIEventConsumerCommand.cs" />
     <Compile Include="Commands\Windows\WmiEventFilterCommand.cs" />
     <Compile Include="Commands\Windows\WMIFilterToConsumerBindingCommand.cs" />
+    <Compile Include="Commands\Products\LastPass.cs" />
     <Compile Include="Interop\Rpcrt4.cs" />
     <Compile Include="Output\Sinks\JsonFileOutputSink.cs" />
     <Compile Include="SeatbeltOptions.cs" />
