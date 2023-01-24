@@ -159,6 +159,7 @@ namespace Seatbelt.Commands
                 var dto = (LastPassDTO)result;
 
                 WriteLine($"{dto.DateAccessed:yyyy-MM-dd}    {dto.DateModified:yyyy-MM-dd}    {dto.Path}");
+                WriteLine();
             }
         }
     }
